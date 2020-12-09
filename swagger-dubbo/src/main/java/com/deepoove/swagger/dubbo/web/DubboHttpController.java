@@ -107,7 +107,7 @@ public class DubboHttpController {
 			for (int i = 0; i < parameterNames.length; i++) {
 				String parameter = request.getParameter(parameterNames[i]);
 				//body存在且是自定义类
-				if (StringUtils.isNotBlank(body) && parameterClazz[i].getClassLoader() == null) {
+				if (StringUtils.isNotBlank(body) && parameterClazz[i].getClassLoader() != null) {
 					parameter = body;
 				}
 				Object suggestParameterValue = suggestParameterValue(parameterTypes[i],	parameterClazz[i], parameter);
